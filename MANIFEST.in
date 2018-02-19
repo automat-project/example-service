@@ -1,0 +1,2 @@
+recursive-include AutoMatExampleService/templates *
+recursive-include AutoMatExampleService/static *

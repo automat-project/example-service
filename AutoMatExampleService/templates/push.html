@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Push Data Retrieval </h1>
+<div>Vehicle Big Data is retrieved using the Push Data notification service. This approach retrieves data in real-time as it is available at the Marketplace.</div>
+<div id="map"> </div>
+<br />
+<textarea name="log" id="log" rows="5" cols="110">
+</textarea>
+
+<script type="text/javascript">
+// Configuration 
+var APP_ID               = "{{id|safe}}"
+var APP_DESC             = "AutoMat SDK"
+var APP_SUBSCRIPTION_URL = "{{url|safe}}"
+var APP_MAX_ROUTES       = 50
+
+// Enter HERE Maps API Key here: (see https://developer.here.com)
+var HERE_API_ID   = "RyNXQa3lK6IK3ahqgKW8";
+var HERE_API_Code = "kBgYMCf-b6B3K1PrFNCgYQ";
+
+// Initialize Map
+var tiles = L.tileLayer('https://{s}.base.maps.cit.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=' + HERE_API_ID + '&app_code=' + HERE_API_Code, {
+	attribution: 'Map &copy; 2017 <a href="https://legal.here.com/terms/serviceterms/gb/">HERE Maps</a>',
+	subdomains: '1234'
+});
+var map = L.map('map', {
+	layers: [tiles]
+}).setView([51.51, 7.46], 13);
+
+var layers = L.featureGroup()
+layers.addTo(map)
+
+var routes = []
+
+function cvim_to_map(data) {
+	for (var it=0; it < data.length; it++) {
+		// Logging of data package
+		var t_received = new Date()
+		//$('#log').prepend(t_received.toISOString() + ";" + data[it]["datapackage-id"] + ";" + data[it]["timestamp-start"] + ";" + (JSON.stringify(data[it])).length + "\n")
+		$('#log').prepend(t_received.toISOString() + ' received Data Package ' + data[it]["datapackage-id"] + "\n")
+		// if package is Position (Measurement Channel 2) then plot it on the map
+		if(data[it]['measurement-channel-id'] == "2"){
+			// create new trajectory
+			var polyline_points = []
+			for (var jt = 0;  jt < data[it]["data"].length; jt++){
+				// append latitude and longitude
+				var point = new L.LatLng(data[it]["data"][jt]["value"][0],
+			                             data[it]["data"][jt]["value"][1])
+				polyline_points.push(point)
+			}
+			// create new polyline
+			polyline_route = L.polyline(polyline_points)
+			routes.push(polyline_route)
+			layers.addLayer(polyline_route)
+
+			// limit to max routes
+			if(routes.length > APP_MAX_ROUTES) {
+				layers.removeLayer(routes[0])
+				routes.splice(0, 1)
+			}
+		}
+	}
+}
+
+// Intialize SDK
+var sdk = new AeonSDK(APP_SUBSCRIPTION_URL, {"id": APP_ID, "desc": APP_DESC});
+sdk.subscribe(function(received){
+	cvim_to_map(received)
+});
+
+$('#log').prepend((new Date().toString()) + " - SDK push data retrieval started using ID '" + APP_ID + "'\n");
+</script>
+
+{% endblock %}

@@ -1,0 +1,454 @@
+* {
+    margin:0px;
+    padding:0px;
+    font-family: "open sans", Arial, Helvetica, sans-serif, fontAwesome !important;
+}
+body{
+    background-color:#FFF;
+}
+
+.header{
+    background-color:#f2f2f2;
+    padding:0px 10px;
+
+}
+.header div.logos {
+    height: 140px;
+    position: relative;
+}
+
+span.Auto, span.Mat{
+    font-weight:bold;
+    font-style:italic;
+}
+
+span.Auto{
+    color:#656263;
+}
+
+span.Mat{
+    color: #408ac6;
+}
+
+.header img.logo{
+    height:133px;
+    vertical-align: -30px;
+    width:300px;
+
+}
+
+.header img.tu-logo{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 200px;
+    height: auto;
+}
+
+.header a{
+    color: #000;
+    font-size:30px;
+    text-decoration:none;
+}
+
+.menu{
+    border-bottom:4px solid #408ac7;
+    background-color:#f2f2f2;
+    clear:both;
+    padding:0px;
+}
+
+.menu2{
+    border-top:4px solid rgb(165, 202, 233);
+    clear:both;
+    padding:0px; 
+    text-align:right;
+}
+
+.content{
+    background-color:#FFF;
+    clear:both;
+    margin:0px auto;
+    min-height:500px;
+    padding:5px 5px 0px;
+    min-width:1024px;
+    max-width:1440px;
+}
+
+.dimension{
+    width:1000px;
+    margin:0px auto;
+}
+
+.footer{
+    background-color:#FFF;
+    clear:both;
+    color:#555;
+    margin-top:40px;
+    padding:1px 5px;
+    font-size: 11px;
+    font-style: italic;
+}
+
+.menu a, .menu2 .item{
+    background-color: rgb(64, 138, 199);
+    color:rgb(242, 242, 242);
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:1px;
+    line-height:39px;
+    padding:0px 10px;
+    text-decoration:none;
+    text-transform: uppercase;
+}
+
+.menu a.log-link{
+    display:block;
+    float:right;
+}
+
+.menu a.warn:hover{
+    background-color:#FCC;
+}
+
+.menu a:hover{
+    background-color:#1f658b;
+}
+
+.menu hr{
+    border-color: rgb(156,202,233);
+}
+
+.menu a i.fa{
+    color:#666;
+}
+
+.menu a:hover i.fa{
+    color:#000;
+}
+
+.menu .menu-login{
+    border-left:1px solid #000;
+    float:right;
+    padding-left: 5px;
+}
+
+.menu2 .item{
+    background-color:rgb(165, 202, 233);
+    line-height:30px;
+    float:right;
+
+}
+
+.content .error{
+    background-color: #FCC;
+    border:1px solid #F00;
+    padding:5px;
+    margin-bottom:5px;
+}
+
+.content .info{
+    background-color:rgb(156,202,233);
+    border:1px solid rgb(31,101,139);
+    padding:5px;
+    margin-bottom:5px;
+}
+
+.content .userbox{
+    background-color:rgb(156,202,233);
+    border:1px solid #000;
+    float:right;
+    margin-right:10px;
+    min-width:250px;
+}
+
+.content .userbox div, .content .userbox a{
+    color: #000;
+    padding:5px 10px;
+    text-decoration: none;
+}
+
+.content .userbox a{
+    display:block;
+}
+
+.content .userbox .username{
+    font-weight:bold;
+    text-align: center;
+}
+
+.content .container{
+    border:1px solid #000;
+    padding-top:5px;
+}
+
+.content .container.oems{
+    border-right:20px solid #F66;
+    margin:0px;
+}
+
+.content .container.oems.connected{
+    border-right-color: #5A5;
+    margin:0px;
+}
+
+.content .container.markets{
+    border-left: 20px solid #F66;
+    margin:0px;
+}
+
+.content .container.markets.connected{
+    border-left-color:#5A5;
+}
+
+.content .container .container-title{
+    font-weight: bold;
+    letter-spacing: 3px;
+    padding: 1px 10px;
+    text-transform: uppercase
+}
+
+.content .container .container-key{
+    background-color:rgba(255,255,255,0.6);
+    border-top: 1px solid #000;
+    font-size:14px;
+    margin-top:5px;
+    padding:5px 10px
+}
+
+.content .container .container-status{
+    background-color:#F66;
+    border-top: 1px solid #000;
+    padding-left:5px;
+    display:none;
+}
+
+.content .container.connected .container-status{
+    background-color:#5A5;
+}
+
+ .content .container .container-content{
+    border-top:1px solid #000;
+    padding:5px;
+}
+
+.content .container .container-content a, .content .container .container-content span{
+    color:#000;
+    display:block;
+    text-decoration:none;
+    padding:2px 0px;
+}
+
+.content .container .container-content a:before, .content .container .container-content span:before{
+    content: "\f127";
+}
+
+.content .container .container-content .connect:hover:before{
+    color:#08F;
+    content: "\f0c1";
+}
+
+.content .container .container-content .connected{
+    background-color:#5A5;
+}
+
+.content .container .container-content .connected:before{
+    content: "\f0c1";
+}
+
+.content .container .container-content .connected:hover:before{
+    color:#A00;
+    content: "\f127";
+}
+
+.content .container .container-content .connected:after{
+    color:#333;
+    content: " \f058  connected";
+}
+
+.content .container .container-content .connect:hover:after{
+    color:#08F;
+    content: " [connect]";
+}
+
+.content .container .container-content .connected:hover:after{
+    color:#A00;
+    content: " \f058  [disconnect]";
+}
+
+.content .arrow{
+    width:80px;
+    height:75px;
+    float:left;
+    margin:0px;
+    border-bottom: 4px dotted #F66;
+}
+
+.content .arrow.connected{
+    border-bottom: 4px solid #5A5;
+}
+
+.content .vault{
+    background-color:#DDD;
+    border:4px solid #000;
+    border-radius: 10px;
+    font-size:1.5em;
+    font-weight:bold;
+    height:90px;
+    letter-spacing:1px;
+    margin:10px 0px 0px 0px;
+    padding: 25px 0px;
+    text-align:center;
+    text-transform: uppercase;
+    width:150px;
+    float:left;
+}
+
+.content table.packages{
+    width:100%;
+    margin:0px auto;
+}
+
+.content table.packages > tbody > tr > th{
+    border-bottom:1px solid #000;
+    padding:5px;
+    background-color:#408ac7;
+}
+
+
+.content table.packages > tbody > tr > td{
+    font-size:0.8em;
+    padding:5px
+}
+
+.content table.packages > tbody > tr > td.channelID{
+    text-align:right;
+}
+
+.content table.packages > tbody > tr > td.channel > div.ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    width: 200px;
+}
+
+.content table.packages > tbody > tr:nth-child(even){
+    background-color:rgba(165,202,233,0.5);
+}
+
+.content table.packages > tbody > tr > td.package a{
+    color:#000;
+    text-decoration:none;
+    font-style:italic;
+}
+
+.content table.packages > tbody > tr > td.actions a{
+    color:#000;
+    font-size:1em;
+    text-decoration: none;
+    margin:0px 1px 0px 2px;
+}
+
+.content table.packages > tbody > tr > td.package-content{
+    background-color:#FFF;
+}
+
+.content table.packages > tbody > tr > td.package-content .chart{
+    height:500px;
+    width:950px;
+    margin:0px auto;
+}
+
+.content table.packages > tbody > tr > td.package-content .chart{
+    height:500px;
+    width:950px;
+    margin:0px auto;
+}
+
+.histodata-chart{
+    height:200px;
+    width:500px;
+}
+
+.histodata-chart .main-svg{
+    background-color:transparent !important;
+}
+
+.content table.packages > tbody > tr > td.package-content .container{
+    border-width:0px;
+}
+
+.metadata-table {
+    border: 0px;
+    margin: 0px; 
+    padding: 0px;
+    border-spacing: 0;
+}
+
+.metadata-table tr:nth-child(odd){
+    background-color:rgba(165,202,233,0.3);
+/*    border-top:1px solid #99F;*/
+}
+
+.metadata-table th{
+    text-align:left;
+    vertical-align:top;
+    font-weight: normal;
+    min-width: 225px;
+}
+.metadata-table .subth {
+    text-align: left;
+}
+
+
+.metadata-table td{
+    padding: 5px;
+    text-align: right;
+    min-width: 40px;
+}
+
+.footer .footer-logo{
+    height:40px;
+    float:right;
+    display:block;
+}
+
+.error .confirm, .info .confirm{
+    border:1px solid #000;
+    padding:2px 10px;
+}
+
+.small{
+    float:left;
+    width:300px;
+}
+
+#REMEMBER{
+    background-color: rgb(31,101,139);
+    background-color: rgb(156,202,233);
+    background-color: rgb(109,180,78);
+    background-color: rgb(232,151,58);
+
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+}
+
+#log {
+    font-family: Consolas, courier !important;
+}
+
+.content ol, .content ul {
+    padding-left: 40px
+}
+
+.content dt {
+    font-weight: bold;
+}
+
+dl,dt,dd {
+  padding:auto;
+  margin:auto;
+}

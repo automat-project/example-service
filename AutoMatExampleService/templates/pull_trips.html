@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Retrieve Data as Trips</h1>
+<div id="map"> </div>
+
+<script type="text/javascript">
+// Configuration 
+var APP_MAX_ROUTES       = 50
+
+// Enter HERE Maps API Key here: (see https://developer.here.com)
+var HERE_API_ID   = "RyNXQa3lK6IK3ahqgKW8";
+var HERE_API_Code = "kBgYMCf-b6B3K1PrFNCgYQ";
+
+// Initialize Map
+var tiles = L.tileLayer('https://{s}.base.maps.cit.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=' + HERE_API_ID + '&app_code=' + HERE_API_Code, {
+	attribution: 'Map &copy; 2017 <a href="https://legal.here.com/terms/serviceterms/gb/">HERE Maps</a>',
+	subdomains: '1234'
+});
+var map = L.map('map', {
+	layers: [tiles]
+}).setView([51.51, 7.46], 13);
+
+var layers = L.featureGroup()
+layers.addTo(map)
+
+var routes = []
+
+function trips_to_map(data) {
+	if (typeof data != 'undefined') {
+		var layers = L.featureGroup()
+		for (var i = 0;  i < data.length; i++) {
+			coord = data[i]
+			var hotlineLayer = L.hotline(coord, {
+				min: 0,
+				max: 80,
+				palette: {
+					//// alt speed scale red=slow, green=fast
+					//0.0: '#ff0000',
+					//1.0: '#00FF00'
+					// speed scale
+					0.0: '#362B87',
+					0.1: '#105CDE',
+					0.2: '#137DD8',
+					0.3: '#079DD0',
+					0.5: '#16B1B5',
+					0.6: '#59BE8C',
+					0.7: '#A6BF6B',
+					0.8: '#E2BA53',
+					0.9: '#FCCE2E',
+					1.0: '#F9FB0E'
+				},
+				weight: 7,
+				outlineColor: '#000000',
+				outlineWidth: 1
+			});
+			layers.addLayer(hotlineLayer)
+		}
+		layers.addTo(map);
+		// Make sure every hotline is visible
+		map.fitBounds(layers.getBounds());
+	}
+}
+// Include our data
+{{ tripdata|safe }}
+trips_to_map(tripdata)
+
+</script>
+
+
+{% endblock %}
