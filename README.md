@@ -60,7 +60,7 @@ git clone https://github.com/automat-project/example-service.git
 
 Alternatively, all files can be downloaded as one zip file under the following link:
 ```
-https://github.com/automat-project/master/raw/dist/AutoMat%20SDK%20Example%20Service-2.0.zip
+https://raw.githubusercontent.com/automat-project/example-service/master/dist/Automat_SDK_Example_Service-2.0.1.zip
 ```
 
 To verify, that all dependencies and the source code have been installed correctly, you can switch into the example-service directory and run the setup.py as follows:
