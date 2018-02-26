@@ -142,7 +142,8 @@ The push data example established a socket connection to the Marketplace and reg
 ```
 https://www.youtube.com/watch?v=PddfoL3qToM
 ```
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/PddfoL3qToM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+[![AutoMat SDK Example Service Video](doc/youtube.png)](http://www.youtube.com/watch?v=PddfoL3qToM "AutoMat SDK Example Service")
+
 
 The figure below shows the flow diagram of the push data retrieval. In the first step, a socket connection to the Marketplace is established using the AEON SDK. Afterwards, new pushes are awaited. Whenever new data arrives, the CVIM data is processed similarly as described in the previous section. Afterwards the trajectories of the vehicles are displayed. 
 
